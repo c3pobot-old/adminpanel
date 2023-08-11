@@ -1,0 +1,5 @@
+FROM ghcr.io/c3pobot-old/adminpanel:latest
+WORKDIR /app
+COPY ./build /app/src/webapp
+USER node
+CMD node index.js
