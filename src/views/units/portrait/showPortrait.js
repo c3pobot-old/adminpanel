@@ -6,6 +6,7 @@ import DropZone from './dropZone'
 import FileModal from './fileModal'
 import { GetImageFromURL, GetMeta, ResizeImg, ValidateFile } from '../processFile'
 import UpdateUnit from 'components/units/updateUnit'
+import GetImage from 'components/units/getImage'
 import URLModal from './urlModal'
 
 export default function ShowPortrait(opts = {}){
@@ -37,8 +38,8 @@ export default function ShowPortrait(opts = {}){
   }
   async function getCurrentImg(){
     console.log(unit.thumbnailName)
-    let img = await GetImageFromURL('/portrait/'+unit.thumbnailName+'.png')
-    if(img) setOldImg(img);
+    let img = await GetImage(opts, 'portrait', unit.thumbnailName)
+    setOldImg(img);
   }
   async function getImgFromGame(){
     if(unit?.thumbnailName){

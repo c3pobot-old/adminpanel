@@ -33,7 +33,7 @@
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prod": "docker build -f Dockerfile.prod -t registry.gitlab.com/c3po-shard/adminpanel:latest . && docker push registry.gitlab.com/c3po-shard/adminpanel:latest"
+    "prod": "GENERATE_SOURCEMAP=false react-scripts build && chmod a+x buildprodimage.sh && ./buildprodimage.sh c3pobot-old/adminpanel"
   },
   "eslintConfig": {
     "extends": [
