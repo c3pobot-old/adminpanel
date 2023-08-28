@@ -6,7 +6,6 @@ import Discord from './discord'
 import Home from './home'
 import Units from './units'
 import Journey from './journey'
-
 export default function Views(props = {}) {
   const opts = {...props,discordId: GetCookie('discordId') }
   sessionStorage.setItem('nav', window.location.pathname)

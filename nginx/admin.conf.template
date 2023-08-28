@@ -21,6 +21,9 @@ server {
   location /portrait {
     proxy_pass $API_SERVICE_URI;
   }
+  location /redis{
+   return 302 /redis/;
+  }
   location /socket.io {
     proxy_pass $API_SERVICE_URI;
   }

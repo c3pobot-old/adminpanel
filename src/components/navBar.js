@@ -11,7 +11,7 @@ import GetCookie from './cookies'
 import IconMenu from './iconMenu'
 
 //const paths = [{name: 'Home', path: '/home'}, {name: 'AllyCodes', path: '/allyCodes'}, {name: 'Squads', path: '/squads'}, {name: 'Squad Groups', path: '/squadGroups'}, {name: 'Help', path: '/help'}]
-const paths = [{name: 'Home', path: '/home'}, {name: 'Units', path: '/units'}, {name: 'Kube', path: '/kube'}, {name: 'Journey Guide', path: '/journey'}]
+const paths = [{name: 'Home', path: '/home'}, {name: 'Units', path: '/units'}, {name: 'Bull', path: '/bull', newWindow: true}, {name: 'Redis', path: '/redis', newWindow: true}, {name: 'Journey Guide', path: '/journey'}]
 export default function NavBar ({ systemTheme, setSystemTheme, webProfile, setWebProfile }) {
   //hooks
   const [ profileIcon, setProfileIcon ] = useState(webProfile?.avatar || '/discord-logo.png');
@@ -67,10 +67,10 @@ export default function NavBar ({ systemTheme, setSystemTheme, webProfile, setWe
           <Typography variant="h6" noWrap component="div">{process.env.REACT_APP_BOT_NAME}</Typography>
         </Box>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          {paths.map(({name, path}, index) => (
+          {paths.map(({name, path, newWindow}, index) => (
             <Button
               key={index}
-              onClick={()=>ButtonNav(path)}
+              onClick={()=>ButtonNav(path, newWindow)}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >{name}
             </Button>
